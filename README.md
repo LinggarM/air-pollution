@@ -12,6 +12,20 @@
         "password": "string (min 8 character)"
     }
   ```
+- **Response**:
+  ```json
+    {
+        "data": {
+            "name": "linggar",
+            "email": "linggarmc@gmail.com",
+            "updated_at": "2024-09-09T01:19:18.000000Z",
+            "created_at": "2024-09-09T01:19:18.000000Z",
+            "id": 1
+        },
+        "access_token": "1|6DAmsXBA7uP08px0YCBM7JybMQH4yagPpmZDX57y",
+        "token_type": "Bearer"
+    }
+  ```
 
 ## Login User
 
@@ -125,5 +139,5 @@
 
 ### Notes:
 - **Authorization** headers are included where necessary for API endpoints that require authentication.
-- **Get All Users** until **Delete Pollution Data** only able to be used if user already **login**
+- **Get All Users** until **Delete Pollution Data** can only be used if the user is already **logged in**
 - **Endpoints** use a combination of HTTP methods (GET, POST, PUT, DELETE) to interact with the API.
