@@ -22,6 +22,8 @@ Unit pengukuran untuk parameter-parameter ini adalah sebagai berikut:
 - **Kelembapan**: RH
 - **Ozon**: PPB
 
+Data kemudian dilakukan Data Cleaning & Data Preprocessing. Proses dan hasil eksperimen dapat dilihat pada [Indoor Air Pollutants.ipynb](https://colab.research.google.com/drive/1U0sVd48gJ0s6sKs-5VUT4jk_GaTnNfqQ). Setelah dilakukan data celaning & preprocessing, data kemudian diimport pada database PostgreSQL.
+
 # Air Pollution API Documentation
 
 ## Register User
