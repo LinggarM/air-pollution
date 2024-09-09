@@ -30,6 +30,8 @@ Data kemudian dilakukan Data Cleaning & Data Preprocessing. Proses dan hasil eks
 
 - **Endpoint**: `POST http://127.0.0.1:8000/api/register`
 - **Description**: Register a new user.
+* **Request Header**:
+    *   `Content-Type`: `application/json`
 - **Request Body**:
   ```json
     {
@@ -57,6 +59,8 @@ Data kemudian dilakukan Data Cleaning & Data Preprocessing. Proses dan hasil eks
 
 - **Endpoint**: `POST http://127.0.0.1:8000/api/login`
 - **Description**: Log in a user.
+* **Request Header**:
+    *   `Content-Type`: `application/json`
 - **Request Body**:
     ```json
     {
