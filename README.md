@@ -306,19 +306,24 @@ To set up and install the Air Pollution Laravel project with PostgreSQL, follow 
     php artisan key:generate
 6. **Configure PostgreSQL Database**
     - Update your .env file with PostgreSQL database credentials:
-    ```
-    DB_CONNECTION=pgsql
-    DB_HOST=127.0.0.1
-    DB_PORT=5432
-    DB_DATABASE=<database-name>
-    DB_USERNAME=<database-username>
-    DB_PASSWORD=<database-password>
+        ```
+        DB_CONNECTION=pgsql
+        DB_HOST=127.0.0.1
+        DB_PORT=5432
+        DB_DATABASE=<database-name>
+        DB_USERNAME=<database-username>
+        DB_PASSWORD=<database-password>
 7. **Run Migrations**
     ```
     php artisan migrate
 8. **Start the Development Server**
     ```
     php artisan serve
+    ```
+8. **Open Generated Link**
+    ```
+    [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+    ```
 
 
 # Demo Link
