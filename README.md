@@ -28,7 +28,7 @@ Data kemudian dilakukan Data Cleaning & Data Preprocessing. Proses dan hasil eks
 
 ## Register User
 
-- **Endpoint**: `GET http://127.0.0.1:8000/api/register`
+- **Endpoint**: `POST http://127.0.0.1:8000/api/register`
 - **Description**: Register a new user.
 - **Request Body**:
   ```json
