@@ -16,13 +16,13 @@
   ```json
     {
         "data": {
-            "name": "linggar",
-            "email": "linggarmc@gmail.com",
-            "updated_at": "2024-09-09T01:19:18.000000Z",
-            "created_at": "2024-09-09T01:19:18.000000Z",
-            "id": 1
+            "name": "string",
+            "email": "string",
+            "updated_at": "date",
+            "created_at": "date",
+            "id": "integer"
         },
-        "access_token": "1|6DAmsXBA7uP08px0YCBM7JybMQH4yagPpmZDX57y",
+        "access_token": "string",
         "token_type": "Bearer"
     }
   ```
@@ -37,6 +37,14 @@
         "email": "string",
         "password": "string"
     }
+- **Response**:
+  ```json
+    {
+        "message": "string",
+        "access_token": "string",
+        "token_type": "Bearer"
+    }
+  ```
     
 
 ## Logout User
@@ -46,6 +54,12 @@
 *   **Authorization**: Bearer Token
 *   **Request Header**:
     *   `Authorization`: `your-api-token`
+- **Response**:
+  ```json
+    {
+        "message": "string"
+    }
+  ```
 
 ## Get All Users
 
@@ -54,6 +68,17 @@
 *   **Authorization**: Bearer Token
 *   **Request Header**:
     *   `Authorization`: `your-api-token`
+- **Response**:
+  ```json
+    {
+        "id": integer,
+        "name": "string",
+        "email": "string",
+        "email_verified_at": "date",
+        "created_at": "date",
+        "updated_at": "date"
+    }
+  ```
 
 ## Get All Pollution Data
 
@@ -66,6 +91,51 @@
 *   **Params**:
     *   `per_page`: `number`
     *   `page`: `number`
+*   **Response**:
+    ```json
+    {
+        "status": "string",
+        "message": "string",
+        "data": {
+            "current_page": "integer",
+            "data": [
+                {
+                    "id": "integer",
+                    "NH3": "float",
+                    "NO2": "float",
+                    "CO": "float",
+                    "PM2_5": "float",
+                    "Temp": "float",
+                    "Pressure": "float",
+                    "Humidity": "float",
+                    "O3": "float",
+                    "Date": "date",
+                    "created_at": "date",
+                    "updated_at": "date"
+                },
+                ...
+            ],
+            "first_page_url": "string",
+            "from": "integer",
+            "last_page": "integer",
+            "last_page_url": "string",
+            "links": [
+                {
+                    "url": "string",
+                    "label": "string",
+                    "active": "boolean"
+                },
+                ...
+            ],
+            "next_page_url": "string",
+            "path": "string",
+            "per_page": "integer",
+            "prev_page_url": "string",
+            "to": "integer",
+            "total": "integer"
+        }
+    }
+    ```
 
 ## Get Pollution Data by ID
 
@@ -75,6 +145,27 @@
 *   **Request Header**:
     *   `Authorization`: `your-api-token`
     *   `Accept`: `application/json`
+- **Response**:
+  ```json
+    {
+        "status": "string",
+        "message": "string",
+        "data": {
+            "id": "integer",
+            "NH3": "float",
+            "NO2": "float",
+            "CO": "float",
+            "PM2_5": "float",
+            "Temp": "float",
+            "Pressure": "float",
+            "Humidity": "float",
+            "O3": "float",
+            "Date": "date",
+            "created_at": "date",
+            "updated_at": "date"
+        }
+    }
+  ```
 
 ## Create Pollution Data
 
@@ -99,6 +190,27 @@
         "O3": "float",
         "Date": "date"
     }
+- **Response**:
+  ```json
+    {
+        "status": "string",
+        "message": "string",
+        "data": {
+            "NH3": "float",
+            "NO2": "float",
+            "CO": "float",
+            "PM2_5": "float",
+            "Temp": "float",
+            "Pressure": "float",
+            "Humidity": "float",
+            "O3": "float",
+            "Date": "date",
+            "created_at": "date",
+            "updated_at": "date"
+            "id": "integer",
+        }
+    }
+  ```
     
 
 ## Update Pollution Data
@@ -124,7 +236,28 @@
         "O3": "float",
         "Date": "date"
     }
-    
+- **Response**:
+  ```json
+    {
+        "status": "string",
+        "message": "string",
+        "data": {
+            "id": "integer",
+            "NH3": "float",
+            "NO2": "float",
+            "CO": "float",
+            "PM2_5": "float",
+            "Temp": "float",
+            "Pressure": "float",
+            "Humidity": "float",
+            "O3": "float",
+            "Date": "date",
+            "created_at": "date",
+            "updated_at": "date"
+        }
+    }
+  ```
+
 
 ## Delete Pollution Data
 
@@ -135,6 +268,13 @@
 *   **Request Header**:
     *   `Authorization`: `your-api-token`
     *   `Accept`: `application/json`
+- **Response**:
+  ```json
+    {
+        "status": "string",
+        "message": "string"
+    }
+  ```
 
 
 ### Notes:
