@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pollution;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class PollutionController extends Controller
 {
@@ -12,11 +13,16 @@ class PollutionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // Get all records from the environmental_data table
-        $data = Pollution::all();
-        return response()->json($data);
+        // Get paginated records from the environmental_data table
+        $perPage = $request->get('per_page', 10); // Default is 10 records per page, can be set by query parameter
+
+        // Paginate the results
+        $data = Pollution::paginate($perPage);
+
+        // Return the paginated response with api_response helper
+        return api_response('success', 'Data retrieved successfully', $data);
     }
 
     /**
@@ -42,22 +48,25 @@ class PollutionController extends Controller
 
         // Create a new record
         $data = Pollution::create($validated);
-        return response()->json($data, 201);
+
+        return api_response('success', 'Data created successfully', $data, 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pollution $pollution
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Pollution $pollution)
+    public function show($id)
     {
-        // return response()->json($pollution);
-        if ($pollution) {
+        try {
+            // Retrieve the pollution data by ID
+            $pollution = Pollution::findOrFail($id);
+
             return api_response('success', 'Post retrieved successfully', $pollution);
-        } else {
-            return api_response('error', 'Post not found', null, '404');
+        } catch (ModelNotFoundException $e) {
+            return api_response('error', 'Post not found', null, 404);
         }
     }
 
@@ -65,10 +74,10 @@ class PollutionController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param  \App\Models\Pollution $pollution
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pollution $pollution)
+    public function update(Request $request, $id)
     {
         // Validate the request
         $validated = $request->validate([
@@ -83,21 +92,33 @@ class PollutionController extends Controller
             'Date' => 'required|date',
         ]);
 
-        // Update the record
-        $pollution->update($validated);
-        return response()->json($pollution);
+        try {
+            // Retrieve the pollution data by ID and update it
+            $pollution = Pollution::findOrFail($id);
+            $pollution->update($validated);
+
+            return api_response('success', 'Data updated successfully', $pollution);
+        } catch (ModelNotFoundException $e) {
+            return api_response('error', 'Post not found', null, 404);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pollution $pollution
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pollution $pollution)
+    public function destroy($id)
     {
-        // Delete the record
-        $pollution->delete();
-        return response()->json(null, 204);
+        try {
+            // Retrieve the pollution data by ID and delete it
+            $pollution = Pollution::findOrFail($id);
+            $pollution->delete();
+
+            return api_response('success', 'Data deleted successfully', null, 200);
+        } catch (ModelNotFoundException $e) {
+            return api_response('error', 'Post not found', null, 404);
+        }
     }
 }

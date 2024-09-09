@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PollutionController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,11 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// API Version 1
-Route::prefix('v1')->group(function () {
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+});
+
+// API Version 1 with Sanctum Authentication
+Route::prefix('v1')->middleware('auth:sanctum')->group(function () {
     Route::apiResource('pollutions', PollutionController::class);
 });
