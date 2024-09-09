@@ -4,7 +4,7 @@ Air Pollution is a Laravel project that provides an API for managing air polluti
 # Data Air Pollution
 Proyek ini menggunakan data yang diambil dari [Dataset of Indoor Air Pollutants using Low-Cost Sensors](https://data.mendeley.com/datasets/2r232jpfb2/1), yang merupakan data konsentrasi polutan udara dalam ruangan yang dikumpulkan dari semua musim di kota Pune, India, menggunakan sistem berbasis Internet of Things.
 
-Data ini terdiri dari 173.468 catatan yang dikumpulkan dari November 2020 hingga Juli 2022, yang mencakup:
+Data ini terdiri dari 173.468 record yang dikumpulkan dari November 2020 hingga Juli 2022, yang mencakup:
 
 - **PM2.5 (Particulate Matter)** diukur menggunakan sensor Debu dan Asap GP2Y1010AU0F.
 - **NO2 (Dioxida Nitrogen)**, **NH3 (Amonia)**, dan **CO (Karbon Monoksida)** diukur menggunakan sensor MICS-6814.
