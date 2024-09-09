@@ -1,4 +1,4 @@
-# Air Pollution API
+# Air Pollution
 Air Pollution is a Laravel project that provides an API for managing air pollution data, along with a dashboard that implement this API.
 
 # Data Air Pollution
