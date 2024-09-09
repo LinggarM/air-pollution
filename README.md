@@ -1,11 +1,34 @@
-# Air Pollution API
+# Air Pollution
 Air Pollution is a Laravel project that provides an API for managing air pollution data, along with a dashboard that implement this API.
+
+# Data Air Pollution
+Proyek ini menggunakan data yang diambil dari [Dataset of Indoor Air Pollutants using Low-Cost Sensors](https://data.mendeley.com/datasets/2r232jpfb2/1), yang merupakan data konsentrasi polutan udara dalam ruangan yang dikumpulkan dari semua musim di kota Pune, India, menggunakan sistem berbasis Internet of Things.
+
+Data ini terdiri dari 173.468 catatan yang dikumpulkan dari November 2020 hingga Juli 2022, yang mencakup:
+
+- **PM2.5 (Particulate Matter)** diukur menggunakan sensor Debu dan Asap GP2Y1010AU0F.
+- **NO2 (Dioxida Nitrogen)**, **NH3 (Amonia)**, dan **CO (Karbon Monoksida)** diukur menggunakan sensor MICS-6814.
+- **Ozon (O3)** diukur menggunakan sensor Semikonduktor MQ131.
+- **Suhu** dan **Kelembapan** diukur menggunakan sensor BME 280.
+
+Unit pengukuran untuk parameter-parameter ini adalah sebagai berikut:
+
+- **NH3**: PPM
+- **NO2**: PPM
+- **CO**: PPM
+- **PM2.5**: µg/m³
+- **Suhu**: Celsius
+- **Tekanan**: hPa
+- **Kelembapan**: RH
+- **Ozon**: PPB
+
+Data kemudian dilakukan Data Cleaning & Data Preprocessing. Proses dan hasil eksperimen dapat dilihat pada [Indoor Air Pollutants.ipynb](https://colab.research.google.com/drive/1U0sVd48gJ0s6sKs-5VUT4jk_GaTnNfqQ). Setelah dilakukan data celaning & preprocessing, data kemudian diimport pada database PostgreSQL.
 
 # Air Pollution API Documentation
 
 ## Register User
 
-- **Endpoint**: `GET http://127.0.0.1:8000/api/register`
+- **Endpoint**: `POST http://127.0.0.1:8000/api/register`
 - **Description**: Register a new user.
 - **Request Body**:
   ```json
@@ -321,9 +344,9 @@ To set up and install the Air Pollution Laravel project with PostgreSQL, follow 
     php artisan serve
     ```
 8. **Open Generated Link**
-    [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+    - [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 
 # Demo Link
 
-[http://air-pollution.free.nf/?i=1](http://air-pollution.free.nf/?i=1)
+[http://air-pollution.free.nf/](http://air-pollution.free.nf/) (Coming Soon)
