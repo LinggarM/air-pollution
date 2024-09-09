@@ -7,9 +7,9 @@
 - **Request Body**:
   ```json
     {
-        "name": "linggar",
-        "email": "linggarmc@gmail.com",
-        "password": "linggar123"
+        "name": "string",
+        "email": "string",
+        "password": "string (min 8 character)"
     }
   ```
 
@@ -20,13 +20,12 @@
 - **Request Body**:
     ```json
     {
-        "email": "linggarmc@gmail.com",
-        "password": "linggar123"
+        "email": "string",
+        "password": "string"
     }
     
 
 ## Logout User
-
 
 *   **Endpoint**: `POST http://127.0.0.1:8000/api/logout`
 *   **Description**: Log out the currently authenticated user.
@@ -44,17 +43,19 @@
 
 ## Get All Pollution Data
 
-
-*   **Endpoint**: `GET http://127.0.0.1:8000/api/v1/pollutions?per_page=5&page=2`
+*   **Endpoint**: `GET http://127.0.0.1:8000/api/v1/pollutions`
 *   **Description**: Retrieve pollution data with pagination.
 *   **Authorization**: Bearer Token
 *   **Request Header**:
     *   `Authorization`: `your-api-token`
     *   `Accept`: `application/json`
+*   **Params**:
+    *   `per_page`: `number`
+    *   `page`: `number`
 
 ## Get Pollution Data by ID
 
-*   **Endpoint**: `GET http://localhost:8000/api/v1/pollutions/1`
+*   **Endpoint**: `GET http://localhost:8000/api/v1/pollutions/{id}`
 *   **Description**: Retrieve pollution data by a specific ID.
 *   **Authorization**: Bearer Token
 *   **Request Header**:
@@ -74,22 +75,22 @@
 *   **Request Body**:
     ```json
     {
-        "NH3": 1.23,
-        "NO2": 0.45,
-        "CO": 0.67,
-        "PM2_5": 10.5,
-        "Temp": 22.5,
-        "Pressure": 1013.25,
-        "Humidity": 60.4,
-        "O3": 0.98,
-        "Date": "2024-09-06 14:30:00"
+        "NH3": "float",
+        "NO2": "float",
+        "CO": "float",
+        "PM2_5": "float",
+        "Temp": "float",
+        "Pressure": "float",
+        "Humidity": "float",
+        "O3": "float",
+        "Date": "date"
     }
     
 
 ## Update Pollution Data
 
 
-*   **Endpoint**: `PUT http://localhost:8000/api/v1/pollutions/1`
+*   **Endpoint**: `PUT http://localhost:8000/api/v1/pollutions/{id}`
 *   **Description**: Update existing pollution data entry.
 *   **Authorization**: Bearer Token
 *   **Request Header**:
@@ -97,24 +98,24 @@
     *   `Content-Type`: `application/json`
     *   `Accept`: `application/json`
 *   **Request Body**:
-    ``````json
+    ```json
     {
-        "NH3": 1.23,
-        "NO2": 0.45,
-        "CO": 0.67,
-        "PM2_5": 10.5,
-        "Temp": 22.5,
-        "Pressure": 1013.25,
-        "Humidity": 60.4,
-        "O3": 0.98,
-        "Date": "2024-09-06 14:30:00"
+        "NH3": "float",
+        "NO2": "float",
+        "CO": "float",
+        "PM2_5": "float",
+        "Temp": "float",
+        "Pressure": "float",
+        "Humidity": "float",
+        "O3": "float",
+        "Date": "date"
     }
     
 
 ## Delete Pollution Data
 
 
-*   **Endpoint**: `DELETE http://127.0.0.1:8000/api/v1/pollutions/1002`
+*   **Endpoint**: `DELETE http://127.0.0.1:8000/api/v1/pollutions/{id}`
 *   **Description**: Delete pollution data entry by ID.
 *   **Authorization**: Bearer Token
 *   **Request Header**:
