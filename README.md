@@ -1,64 +1,128 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Air Pollution API Documentation
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Register User
 
-## About Laravel
+- **Endpoint**: `GET http://127.0.0.1:8000/api/register`
+- **Description**: Register a new user.
+- **Request Body**:
+  ```json
+    {
+        "name": "linggar",
+        "email": "linggarmc@gmail.com",
+        "password": "linggar123"
+    }
+  ```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Login User
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Endpoint**: `POST http://127.0.0.1:8000/api/login`
+- **Description**: Log in a user.
+- **Request Body**:
+    ```json
+    {
+        "email": "linggarmc@gmail.com",
+        "password": "linggar123"
+    }
+    
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Logout User
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+*   **Endpoint**: `POST http://127.0.0.1:8000/api/logout`
+*   **Description**: Log out the currently authenticated user.
+*   **Authorization**: Bearer Token
+*   **Request Header**:
+    *   `Authorization`: `your-api-token`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Get All Users
 
-## Laravel Sponsors
+*   **Endpoint**: `GET http://127.0.0.1:8000/api/user`
+*   **Description**: Retrieve a list of all users.
+*   **Authorization**: Bearer Token
+*   **Request Header**:
+    *   `Authorization`: `your-api-token`
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Get All Pollution Data
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+*   **Endpoint**: `GET http://127.0.0.1:8000/api/v1/pollutions?per_page=5&page=2`
+*   **Description**: Retrieve pollution data with pagination.
+*   **Authorization**: Bearer Token
+*   **Request Header**:
+    *   `Authorization`: `your-api-token`
+    *   `Accept`: `application/json`
 
-## Contributing
+## Get Pollution Data by ID
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+*   **Endpoint**: `GET http://localhost:8000/api/v1/pollutions/1`
+*   **Description**: Retrieve pollution data by a specific ID.
+*   **Authorization**: Bearer Token
+*   **Request Header**:
+    *   `Authorization`: `your-api-token`
+    *   `Accept`: `application/json`
 
-## Code of Conduct
+## Create Pollution Data
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+*   **Endpoint**: `POST http://localhost:8000/api/v1/pollutions`
+*   **Description**: Create new pollution data entry.
+*   **Authorization**: Bearer Token
+*   **Request Header**:
+    *   `Authorization`: `your-api-token`
+    *   `Content-Type`: `application/json`
+    *   `Accept`: `application/json`
+*   **Request Body**:
+    ```json
+    {
+        "NH3": 1.23,
+        "NO2": 0.45,
+        "CO": 0.67,
+        "PM2_5": 10.5,
+        "Temp": 22.5,
+        "Pressure": 1013.25,
+        "Humidity": 60.4,
+        "O3": 0.98,
+        "Date": "2024-09-06 14:30:00"
+    }
+    
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Update Pollution Data
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+*   **Endpoint**: `PUT http://localhost:8000/api/v1/pollutions/1`
+*   **Description**: Update existing pollution data entry.
+*   **Authorization**: Bearer Token
+*   **Request Header**:
+    *   `Authorization`: `your-api-token`
+    *   `Content-Type`: `application/json`
+    *   `Accept`: `application/json`
+*   **Request Body**:
+    ``````json
+    {
+        "NH3": 1.23,
+        "NO2": 0.45,
+        "CO": 0.67,
+        "PM2_5": 10.5,
+        "Temp": 22.5,
+        "Pressure": 1013.25,
+        "Humidity": 60.4,
+        "O3": 0.98,
+        "Date": "2024-09-06 14:30:00"
+    }
+    
+
+## Delete Pollution Data
+
+
+*   **Endpoint**: `DELETE http://127.0.0.1:8000/api/v1/pollutions/1002`
+*   **Description**: Delete pollution data entry by ID.
+*   **Authorization**: Bearer Token
+*   **Request Header**:
+    *   `Authorization`: `your-api-token`
+    *   `Accept`: `application/json`
+
+
+### Notes:
+- **Authorization** headers are included where necessary for API endpoints that require authentication.
+- **Get All Users** until **Delete Pollution Data** only able to be used if user already **login**
+- **Endpoints** use a combination of HTTP methods (GET, POST, PUT, DELETE) to interact with the API.
