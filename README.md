@@ -1,3 +1,6 @@
+# Air Pollution API
+Air Pollution is a Laravel project that provides an API for managing air pollution data, along with a dashboard that implement this API.
+
 # Air Pollution API Documentation
 
 ## Register User
@@ -281,3 +284,43 @@
 - **Authorization** headers are included where necessary for API endpoints that require authentication.
 - **Get All Users** until **Delete Pollution Data** can only be used if the user is already **logged in**
 - **Endpoints** use a combination of HTTP methods (GET, POST, PUT, DELETE) to interact with the API.
+
+# Installation
+
+To set up and install the Air Pollution Laravel project with PostgreSQL, follow these steps:
+
+1. **Clone the Repository**
+    ```
+    git clone https://github.com/LinggarM/air-pollution
+2. **Navigate to the Project Directory**
+    ```
+    cd air-pollution
+3. **Install Dependencies**
+    ```
+    composer install
+4. **Set Up Environment File**
+    ```
+    cp .env.example .env
+5. **Generate Application Key**
+    ```
+    php artisan key:generate
+6. **Configure PostgreSQL Database**
+    - Update your .env file with PostgreSQL database credentials:
+    ```
+    DB_CONNECTION=pgsql
+    DB_HOST=127.0.0.1
+    DB_PORT=5432
+    DB_DATABASE=<database-name>
+    DB_USERNAME=<database-username>
+    DB_PASSWORD=<database-password>
+7. **Run Migrations**
+    ```
+    php artisan migrate
+8. **Start the Development Server**
+    ```
+    php artisan serve
+
+
+# Demo Link
+
+[http://air-pollution.free.nf/?i=1](http://air-pollution.free.nf/?i=1)
