@@ -101,7 +101,7 @@ Data kemudian dilakukan Data Cleaning & Data Preprocessing. Proses dan hasil eks
 - **Response**:
   ```json
     {
-        "id": integer,
+        "id": "integer",
         "name": "string",
         "email": "string",
         "email_verified_at": "date",
