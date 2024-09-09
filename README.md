@@ -321,9 +321,7 @@ To set up and install the Air Pollution Laravel project with PostgreSQL, follow 
     php artisan serve
     ```
 8. **Open Generated Link**
-    ```
     [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
-    ```
 
 
 # Demo Link
